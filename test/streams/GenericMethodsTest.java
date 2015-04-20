@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -88,5 +89,18 @@ public class GenericMethodsTest {
     Integer lowestNumber = service.lowestNumber(numbers);
 
     assertNull(lowestNumber);
+  }
+
+  @Test
+  public void toArray_streamOfCharacters() {
+    Stream<String> stream = Stream.of("j", "o", "h", "n");
+
+    String[] result = service.createStringArray(stream);
+
+    assertEquals(4, result.length);
+    assertEquals("j", result[0]);
+    assertEquals("o", result[1]);
+    assertEquals("h", result[2]);
+    assertEquals("n", result[3]);
   }
 }

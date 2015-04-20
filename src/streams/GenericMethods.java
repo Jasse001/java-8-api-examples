@@ -2,6 +2,7 @@ package streams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -26,5 +27,9 @@ public class GenericMethods {
 
   public Integer lowestNumber(List<Integer> numbers) {
     return numbers.stream().min(Integer::min).orElse(null);
+  }
+
+  public String[] createStringArray(Stream<String> stream) {
+    return stream.toArray(String[]::new);
   }
 }
