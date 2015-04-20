@@ -8,17 +8,17 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class MapTest {
+public class GenericMethodsTest {
 
-  private Map service;
+  private GenericMethods service;
 
   @Before
   public void before() {
-    service = new Map();
+    service = new GenericMethods();
   }
 
   @Test
-  public void streams_map_processList() {
+  public void processList() {
     List<String> words = Arrays.asList(" Some Word ", " JohN DOe", "jAne ");
 
     List<String> processedWords = service.processWords(words);
