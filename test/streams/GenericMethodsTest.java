@@ -18,7 +18,7 @@ public class GenericMethodsTest {
   }
 
   @Test
-  public void processList() {
+  public void lowercaseAndTrimList() {
     List<String> words = Arrays.asList(" Some Word ", " JohN DOe", "jAne ");
 
     List<String> processedWords = service.processWords(words);
