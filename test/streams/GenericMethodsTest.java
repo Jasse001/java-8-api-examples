@@ -52,4 +52,13 @@ public class GenericMethodsTest {
     assertEquals("phrase2", validPhrases.get(1));
     assertEquals("phrase3", validPhrases.get(2));
   }
+
+  @Test
+  public void max_highestNumberInList() {
+    List<Integer> numbers = Arrays.asList(30, 34, 34, 14);
+
+    Integer highestNumber = service.highestNumber(numbers);
+
+    assertEquals(34, highestNumber.intValue());
+  }
 }

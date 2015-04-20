@@ -19,4 +19,8 @@ public class GenericMethods {
   public List<String> removeEmptyAndMissing(List<String> phrases) {
     return phrases.stream().filter(phrase -> phrase != null && !phrase.trim().isEmpty()).collect(toList());
   }
+
+  public int highestNumber(List<Integer> numbers) {
+    return numbers.stream().max((o1, o2) -> o1 - o2).orElse(null);
+  }
 }
