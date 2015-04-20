@@ -40,4 +40,16 @@ public class GenericMethodsTest {
     assertEquals(3, lengths.get(1).intValue());
     assertEquals(4, lengths.get(2).intValue());
   }
+
+  @Test
+  public void filter_removeEmptyAndMissing() {
+    List<String> phrases = Arrays.asList("phrase", null, "phrase2", "phrase3", "");
+
+    List<String> validPhrases = service.removeEmptyAndMissing(phrases);
+
+    assertEquals(3, validPhrases.size());
+    assertEquals("phrase", validPhrases.get(0));
+    assertEquals("phrase2", validPhrases.get(1));
+    assertEquals("phrase3", validPhrases.get(2));
+  }
 }
