@@ -34,7 +34,7 @@ public class GenericMethodsTest {
   public void forEach_countsPhrasesLengths() {
     List<String> words = asList("w1", "w12", "w123");
 
-    List<Integer> lengths = service.countNumbersInWords(words);
+    List<Integer> lengths = service.countNumbersIn(words);
 
     assertEquals(3, lengths.size());
     assertEquals(2, lengths.get(0).intValue());
@@ -164,5 +164,14 @@ public class GenericMethodsTest {
     boolean result = service.personNameNotInList("john", candidates);
 
     assertFalse(result);
+  }
+
+  @Test
+  public void count_peopleNames() {
+    List<String> names = asList("john", "joker", "john");
+
+    Long count = service.countNamesIn(names);
+
+    assertEquals(3, count.intValue());
   }
 }

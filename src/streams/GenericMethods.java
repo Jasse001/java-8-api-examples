@@ -11,7 +11,7 @@ public class GenericMethods {
     return phrases.stream().map(phrase -> phrase.toLowerCase().trim()).collect(toList());
   }
 
-  public List<Integer> countNumbersInWords(List<String> phrases) {
+  public List<Integer> countNumbersIn(List<String> phrases) {
     List<Integer> lengths = new ArrayList<>();
     phrases.stream().forEach(phrase -> lengths.add(phrase.length()));
     return lengths;
@@ -47,5 +47,9 @@ public class GenericMethods {
 
   public boolean personNameNotInList(String name, List<String> candidates) {
     return candidates.stream().noneMatch(name::equals);
+  }
+
+  public Long countNamesIn(List<String> names) {
+    return names.stream().count();
   }
 }
