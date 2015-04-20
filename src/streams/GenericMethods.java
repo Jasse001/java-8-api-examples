@@ -20,7 +20,11 @@ public class GenericMethods {
     return phrases.stream().filter(phrase -> phrase != null && !phrase.trim().isEmpty()).collect(toList());
   }
 
-  public int highestNumber(List<Integer> numbers) {
-    return numbers.stream().max((o1, o2) -> o1 - o2).orElse(null);
+  public Integer highestNumber(List<Integer> numbers) {
+    return numbers.stream().max(Integer::compare).orElse(null);
+  }
+
+  public Integer lowestNumber(List<Integer> numbers) {
+    return numbers.stream().min(Integer::min).orElse(null);
   }
 }

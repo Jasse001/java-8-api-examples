@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class GenericMethodsTest {
 
@@ -60,5 +61,32 @@ public class GenericMethodsTest {
     Integer highestNumber = service.highestNumber(numbers);
 
     assertEquals(34, highestNumber.intValue());
+  }
+
+  @Test
+  public void max_emptyList() {
+    List<Integer> numbers = Arrays.asList();
+
+    Integer highestNumber = service.highestNumber(numbers);
+
+    assertNull(highestNumber);
+  }
+
+  @Test
+  public void min_LowestNumberInList() {
+    List<Integer> numbers = Arrays.asList(30, 13, 34, 14);
+
+    Integer lowestNumber = service.lowestNumber(numbers);
+
+    assertEquals(14, lowestNumber.intValue());
+  }
+
+  @Test
+  public void min_emptyList() {
+    List<Integer> numbers = Arrays.asList();
+
+    Integer lowestNumber = service.lowestNumber(numbers);
+
+    assertNull(lowestNumber);
   }
 }
