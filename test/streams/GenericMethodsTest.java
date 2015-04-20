@@ -18,14 +18,26 @@ public class GenericMethodsTest {
   }
 
   @Test
-  public void lowercaseAndTrimList() {
-    List<String> words = Arrays.asList(" Some Word ", " JohN DOe", "jAne ");
+  public void map_lowercaseAndTrimList() {
+    List<String> phrases = Arrays.asList(" Some Word ", " JohN DOe", "jAne ");
 
-    List<String> processedWords = service.processWords(words);
+    List<String> processedPhrases = service.lowercaseAndTrim(phrases);
 
-    assertEquals(3, processedWords.size());
-    assertEquals("some word", processedWords.get(0));
-    assertEquals("john doe", processedWords.get(1));
-    assertEquals("jane", processedWords.get(2));
+    assertEquals(3, processedPhrases.size());
+    assertEquals("some word", processedPhrases.get(0));
+    assertEquals("john doe", processedPhrases.get(1));
+    assertEquals("jane", processedPhrases.get(2));
+  }
+
+  @Test
+  public void forEach_countsPhrasesLengths() {
+    List<String> words = Arrays.asList("w1", "w12", "w123");
+
+    List<Integer> lengths = service.countNumbersInWords(words);
+
+    assertEquals(3, lengths.size());
+    assertEquals(2, lengths.get(0).intValue());
+    assertEquals(3, lengths.get(1).intValue());
+    assertEquals(4, lengths.get(2).intValue());
   }
 }
