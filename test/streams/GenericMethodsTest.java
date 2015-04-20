@@ -3,10 +3,10 @@ package streams;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -21,7 +21,7 @@ public class GenericMethodsTest {
 
   @Test
   public void map_lowercaseAndTrimList() {
-    List<String> phrases = Arrays.asList(" Some Word ", " JohN DOe", "jAne ");
+    List<String> phrases = asList(" Some Word ", " JohN DOe", "jAne ");
 
     List<String> processedPhrases = service.lowercaseAndTrim(phrases);
 
@@ -33,7 +33,7 @@ public class GenericMethodsTest {
 
   @Test
   public void forEach_countsPhrasesLengths() {
-    List<String> words = Arrays.asList("w1", "w12", "w123");
+    List<String> words = asList("w1", "w12", "w123");
 
     List<Integer> lengths = service.countNumbersInWords(words);
 
@@ -45,7 +45,7 @@ public class GenericMethodsTest {
 
   @Test
   public void filter_removeEmptyAndMissing() {
-    List<String> phrases = Arrays.asList("phrase", null, "phrase2", "phrase3", "");
+    List<String> phrases = asList("phrase", null, "phrase2", "phrase3", "");
 
     List<String> validPhrases = service.removeEmptyAndMissing(phrases);
 
@@ -57,7 +57,7 @@ public class GenericMethodsTest {
 
   @Test
   public void max_highestNumberInList() {
-    List<Integer> numbers = Arrays.asList(30, 34, 34, 14);
+    List<Integer> numbers = asList(30, 34, 34, 14);
 
     Integer highestNumber = service.highestNumber(numbers);
 
@@ -66,7 +66,7 @@ public class GenericMethodsTest {
 
   @Test
   public void max_emptyList() {
-    List<Integer> numbers = Arrays.asList();
+    List<Integer> numbers = asList();
 
     Integer highestNumber = service.highestNumber(numbers);
 
@@ -75,7 +75,7 @@ public class GenericMethodsTest {
 
   @Test
   public void min_LowestNumberInList() {
-    List<Integer> numbers = Arrays.asList(30, 13, 34, 14);
+    List<Integer> numbers = asList(30, 13, 34, 14);
 
     Integer lowestNumber = service.lowestNumber(numbers);
 
@@ -84,7 +84,7 @@ public class GenericMethodsTest {
 
   @Test
   public void min_emptyList() {
-    List<Integer> numbers = Arrays.asList();
+    List<Integer> numbers = asList();
 
     Integer lowestNumber = service.lowestNumber(numbers);
 
@@ -102,5 +102,14 @@ public class GenericMethodsTest {
     assertEquals("o", result[1]);
     assertEquals("h", result[2]);
     assertEquals("n", result[3]);
+  }
+  
+  @Test
+  public void reduce_calculatesTotalAge() {
+    List<Integer> ages = asList(10, 5, 3);
+
+    Integer totalAge = service.totalAge(ages);
+
+    assertEquals(18, totalAge.intValue());
   }
 }

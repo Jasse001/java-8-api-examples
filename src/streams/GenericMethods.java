@@ -32,4 +32,8 @@ public class GenericMethods {
   public String[] createStringArray(Stream<String> stream) {
     return stream.toArray(String[]::new);
   }
+
+  public Integer totalAge(List<Integer> ages) {
+    return ages.stream().reduce(0, (a, b) -> a + b);
+  }
 }
