@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class GenericMethodsTest {
 
@@ -111,5 +110,23 @@ public class GenericMethodsTest {
     Integer totalAge = service.totalAge(ages);
 
     assertEquals(18, totalAge.intValue());
+  }
+
+  @Test
+  public void anyMatch_matchExists() {
+    List<String> candidates = asList("john", "mary", "paul", "linda");
+
+    boolean exists = service.personExists("john", candidates);
+
+    assertTrue(exists);
+  }
+
+  @Test
+  public void anyMatch_noMatch() {
+    List<String> candidates = asList("john", "mary", "paul", "linda");
+
+    boolean exists = service.personExists("jack", candidates);
+
+    assertFalse(exists);
   }
 }

@@ -36,4 +36,8 @@ public class GenericMethods {
   public Integer totalAge(List<Integer> ages) {
     return ages.stream().reduce(0, (a, b) -> a + b);
   }
+
+  public boolean personExists(String name, List<String> candidates) {
+    return candidates.stream().anyMatch(name::equals);
+  }
 }
