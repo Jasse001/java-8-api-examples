@@ -44,4 +44,8 @@ public class GenericMethods {
   public boolean allNamesStartWith(String phrase, List<String> candidates) {
     return candidates.stream().allMatch(candidate -> candidate.startsWith(phrase));
   }
+
+  public boolean personNameNotInList(String name, List<String> candidates) {
+    return candidates.stream().noneMatch(name::equals);
+  }
 }

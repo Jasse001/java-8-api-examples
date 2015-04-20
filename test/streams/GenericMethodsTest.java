@@ -147,4 +147,22 @@ public class GenericMethodsTest {
 
     assertFalse(result);
   }
+
+  @Test
+  public void noneMatch_noPersonWithSuchName() {
+    List<String> candidates = asList("john", "joker", "joanne");
+
+    boolean result = service.personNameNotInList("jack", candidates);
+
+    assertTrue(result);
+  }
+
+  @Test
+  public void noneMatch_peopleWithNameExist() {
+    List<String> candidates = asList("john", "joker", "john");
+
+    boolean result = service.personNameNotInList("john", candidates);
+
+    assertFalse(result);
+  }
 }
