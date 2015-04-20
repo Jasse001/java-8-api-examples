@@ -40,4 +40,8 @@ public class GenericMethods {
   public boolean personExists(String name, List<String> candidates) {
     return candidates.stream().anyMatch(name::equals);
   }
+
+  public boolean allNamesStartWith(String phrase, List<String> candidates) {
+    return candidates.stream().allMatch(candidate -> candidate.startsWith(phrase));
+  }
 }

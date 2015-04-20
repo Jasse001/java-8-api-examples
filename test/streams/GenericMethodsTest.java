@@ -113,7 +113,7 @@ public class GenericMethodsTest {
   }
 
   @Test
-  public void anyMatch_matchExists() {
+  public void anyMatch_matchingNameExists() {
     List<String> candidates = asList("john", "mary", "paul", "linda");
 
     boolean exists = service.personExists("john", candidates);
@@ -122,11 +122,29 @@ public class GenericMethodsTest {
   }
 
   @Test
-  public void anyMatch_noMatch() {
+  public void anyMatch_noMatchingName() {
     List<String> candidates = asList("john", "mary", "paul", "linda");
 
     boolean exists = service.personExists("jack", candidates);
 
     assertFalse(exists);
+  }
+
+  @Test
+  public void allMatch_allNamesStartWithPhrase() {
+    List<String> candidates = asList("john", "joker", "joanne");
+
+    boolean result = service.allNamesStartWith("jo", candidates);
+
+    assertTrue(result);
+  }
+
+  @Test
+  public void allMatch_notAllNamesStartWithPhrase() {
+    List<String> candidates = asList("john", "joker", "joanne");
+
+    boolean result = service.allNamesStartWith("jok", candidates);
+
+    assertFalse(result);
   }
 }
